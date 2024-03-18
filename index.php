@@ -1,7 +1,8 @@
 <?php
 
 //include __DIR__ . '/models/models.php';
-include __DIR__ . '/database/db.php'; //
+include __DIR__ . '/database/db.php';
+include __DIR__ . '/models/feedback.php'; //
 include __DIR__ . '/layouts/head.php';
 
 ?>
@@ -15,18 +16,18 @@ include __DIR__ . '/layouts/head.php';
 
                 <div class="col">
                     <div class="card">
-                        <img class="card-img-top" src="<?= $movie['poster'] ?>" alt="<?php echo $title . "poster" ?>" />
+                        <img class="card-img-top" src="<?= $movie->poster ?>" alt="<?php echo $movie->title . "poster" ?>" />
                         <div class="card-body">
-                            <h3 class="card-title text-danger"><?= $movie['title'] ?></h3>
-                            <div class="card-text"><strong>Regist:&nbsp;</strong><?= $movie['regist'] ?></div>
+                            <h3 class="card-title text-danger"><?= $movie->title ?></h3>
+                            <div class="card-text"><strong>Regist:&nbsp;</strong><?= $movie->regist ?></div>
                             <div class="card-text"><strong>Genre:&nbsp;</strong>
-                                <?php foreach ($movie['genre'] as $genre) {
+                                <?php foreach ($movie->genre as $genre) {
                                     echo $genre . ', ';
                                 } ?>
                             </div>
-                            <div class="card-text"><strong>Restrictions:&nbsp;</strong><?= $movie['restrictions'] ?></div>
-                            <div class="card-text"><strong>Duration:&nbsp;</strong><?= $movie['duration'] . "'" ?></div>
-                            <div class="card-text"><strong>Feedback:&nbsp;</strong><?= $movie['feedback'] ?></div>
+                            <div class="card-text"><strong>Restrictions:&nbsp;</strong><?= $movie->restrictions ?></div>
+                            <div class="card-text"><strong>Duration:&nbsp;</strong><?= $movie->duration . "'" ?></div>
+                            <div class="card-text"><strong>Feedback:&nbsp;</strong><?php renderStars($movie->feedback) ?></div>
                         </div>
                     </div>
 
