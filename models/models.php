@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../database/db.php';
+//include __DIR__ . '/../database/db.php';
 
 class Movie
 {
@@ -8,6 +8,7 @@ class Movie
     public $genre;
     public $duration;
     public $restrictions;
+    public $poster = 'https://picsum.photos/400/200';
 
     public function __construct($_title, $_genre, $_duration)
     {

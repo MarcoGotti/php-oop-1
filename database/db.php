@@ -1,6 +1,20 @@
 <?php
 
-$movies =
+include __DIR__ . '/../models/models.php'; //
+
+$first_movie = new Movie('Matrix', ['Horror', 'Fantasy', 'Sci-Fi'], 120, 'Wachowsky Bros', 4);
+$second_movie = new Movie('Lolita', ['Erotic', 'Thriller'], 104, 'Tinto Bras', 3.5);
+$third_movie = new Movie('Forrest Gump', ['Comedy', 'History'], 186, 'Pinco Pallino', 4.5);
+$fourth_movie = new Movie('V for Vendetta', ['Fantasy', 'Sci-Fi'], 115, 'Wachowsky Bros', 5);
+$fifth_movie = new Movie('The Joker', ['Fantasy', 'Drama', 'Violence'], 115, 'Pinco Pallino', 4.5);
+
+$movies = [];
+
+array_push($movies, $first_movie, $second_movie, $third_movie, $fourth_movie, $fifth_movie);
+var_dump($movies);
+
+
+/* $movies =
     [
         'Matrix' =>
         [
@@ -42,4 +56,4 @@ $movies =
             'feedback' => 5,
             'poster' => 'https://picsum.photos/400/200'
         ],
-    ];
+    ]; */
