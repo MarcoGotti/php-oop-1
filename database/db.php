@@ -4,10 +4,10 @@ include __DIR__ . '/../models/models.php'; //
 $movies =
     [
         $first_movie = new Movie('Matrix', ['Horror', 'Fantasy', 'Sci-Fi'], 120, 'Wachowsky Bros', 4),
-        $second_movie = new Movie('Lolita', ['Erotic', 'Thriller'], 104, 'Tinto Bras', 3.5),
-        $third_movie = new Movie('Forrest Gump', ['Comedy', 'History'], 186, 'Pinco Pallino', 4.5),
+        $second_movie = new Movie('Lolita', ['Erotic', 'Thriller'], 104, 'Tinto Bras', 2.2),
+        $third_movie = new Movie('Forrest Gump', ['Comedy', 'History'], 186, 'Pinco Pallino', 3.3),
         $fourth_movie = new Movie('V for Vendetta', ['Fantasy', 'Sci-Fi'], 115, 'Wachowsky Bros', 5),
-        $fifth_movie = new Movie('The Joker', ['Fantasy', 'Drama', 'Violence'], 115, 'Pinco Pallino', 4.5),
+        $fifth_movie = new Movie('The Joker', ['Fantasy', 'Drama', 'Violence'], 115, 'Pinco Pallino', 4.8),
 
     ];
     
