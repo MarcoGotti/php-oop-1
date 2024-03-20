@@ -1,6 +1,7 @@
 <?php
 
 include __DIR__ . '/../models/models.php'; //
+
 $movies =
     [
         $first_movie = new Movie('Matrix', ['Horror', 'Fantasy', 'Sci-Fi'], 120, 'Wachowsky Bros', 4),
@@ -10,7 +11,12 @@ $movies =
         $fifth_movie = new Movie('The Joker', ['Fantasy', 'Drama', 'Violence'], 115, 'Pinco Pallino', 4.8),
 
     ];
-    
-//var_dump($movies);
+
+//read from models.php
+var_dump($first_movie->normalFunct());
+
+
+
+var_dump($movies);
 
 //array_push($movies, $first_movie, $second_movie, $third_movie, $fourth_movie, $fifth_movie);

@@ -2,32 +2,60 @@
 
 //include __DIR__ . '/../database/db.php';
 
+/**
+ * Movie Class
+ * @author Marco Gotti
+ * @license None
+ * @copyright None
+ */
 class Movie
 {
-    public $title;
-    public $genre;
-    public $duration;
-    public $regist;
+    /**
+     * @var String $restrictions return of function setRestrictions()
+     * @var String $poster loremPicsum random image
+     */
     public $restrictions;
-    public $feedback;
-    public $poster = 'https://picsum.photos/400/200';
+    public static string $poster = 'https://picsum.photos/400/200';
 
-    public function __construct($_title, $_genre, $_duration, $_regist, $_feedback)
+    /**
+     * @param String $title movie title
+     * @param Array $genre movie genres: array of strings
+     * @param Int $duration movie duration
+     * @param String $regist movie regist
+     * @param Float $feedback movie avarage feedback
+     */
+    public function __construct(public $title, public $genre, public $duration, public $regist, public $feedback)
     {
-        $this->title = $_title;
-        $this->genre = $_genre;
-        $this->duration = $_duration;
-        $this->regist = $_regist;
-        $this->feedback = $_feedback;
-        $this->restrictions = $this->setRestrictions($_genre);
+        $this->title = $title;
+        $this->genre = $genre;
+        $this->duration = $duration;
+        $this->regist = $regist;
+        $this->feedback = round($feedback);
+        $this->restrictions = $this->setRestrictions($genre);
     }
 
-    public function setRestrictions($_genre)
+    /**
+     * @param  Array $genre movie genres
+     * @return String one out of three possible outputs depending on parameter
+     */
+    public function setRestrictions($genre)
     {
-        return in_array('Horror', $_genre)
+        return in_array('Horror', $genre)
             ? $this->restrictions = 'over 14'
-            : (in_array('Erotic', $_genre) || in_array('Violence', $_genre)
+            : (in_array('Erotic', $genre) || in_array('Violence', $genre)
                 ? $this->restrictions = 'over 18'
-                : $this->restrictions = 'no age restrictions');
+                : $this->restrictions = Movie::staticFunct());
+    }
+
+    //normal function with static Key -> read in /models.php
+    public function normalFunct()
+    {
+        return Movie::$poster;
+    }
+
+    //static function called in method setRestrictions()
+    public static function staticFunct()
+    {
+        return 'no age restrictions';
     }
 }
